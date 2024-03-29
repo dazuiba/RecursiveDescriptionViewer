@@ -143,8 +143,7 @@ extension Desc {
     func processScrollviewContent() {
         dfs { node in
             if let size = node.elem.contentSize,
-                let offset = node.elem.contentOffset
-                where size.width != 0 && size.height != 0 {
+               let offset = node.elem.contentOffset, size.width != 0 && size.height != 0 {
                     let containerFrame = CGRect(
                         origin: CGPoint(
                             x: -offset.x,

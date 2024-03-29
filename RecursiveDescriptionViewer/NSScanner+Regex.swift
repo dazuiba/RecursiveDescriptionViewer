@@ -18,10 +18,10 @@
 
 import Foundation
 
-extension NSScanner {
+extension Scanner {
     final func peekNext() -> String {
         let range = NSMakeRange(scanLocation, 1)
-        return (string as NSString).substringWithRange(range)
+        return (string as NSString).substring(with: range)
     }
 
     final func removeLeadingWhiteSpace() {
@@ -31,7 +31,7 @@ extension NSScanner {
         Temporarily disable skipped characters so we can trim out the whitespace that would otherwise screw up our regex match.
         */
         while peekNext() == " " {
-            scanLocation++
+            scanLocation+=1
         }
     }
 
@@ -41,9 +41,9 @@ extension NSScanner {
     Important: It's almost certainly better to use scanRegex(regex:) instead unless you plan to only call this once for a particular pattern. This method compiles the regex string before doing the match which can be quite expensive.
     */
     final func scanRegex(string regexString: String) throws -> String? {
-        let regexOpts = NSRegularExpressionOptions.CaseInsensitive
+        let regexOpts = NSRegularExpression.Options.caseInsensitive
         let regex = try NSRegularExpression(pattern: regexString, options: regexOpts)
-        return scanRegex(regex)
+        return scanRegex(regex: regex)
     }
 
     /**
@@ -52,9 +52,9 @@ extension NSScanner {
     final func scanRegex(regex: NSRegularExpression) -> String? {
         let nsString = string as NSString
         removeLeadingWhiteSpace()
-        let matchOpts = NSMatchingOptions.Anchored
+        let matchOpts = NSRegularExpression.MatchingOptions.anchored
         let matchRange = NSMakeRange(scanLocation, nsString.length - scanLocation)
-        guard let match = regex.firstMatchInString(string, options: matchOpts, range: matchRange) else {
+        guard let match = regex.firstMatch(in: string, options: matchOpts, range: matchRange) else {
             return nil
         }
         guard match.numberOfRanges <= 2 else {
@@ -62,9 +62,9 @@ extension NSScanner {
             return nil
         }
         let matchIndex = match.numberOfRanges - 1
-        let consumedRange = match.rangeAtIndex(0)
-        let resultRange = match.rangeAtIndex(matchIndex)
-        let result = nsString.substringWithRange(resultRange)
+        let consumedRange = match.range(at: 0)
+        let resultRange = match.range(at: matchIndex)
+        let result = nsString.substring(with: resultRange)
         self.scanLocation += consumedRange.length
         return result
     }

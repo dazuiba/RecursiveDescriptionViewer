@@ -24,10 +24,10 @@ import Cocoa
             guard let color = layer?.backgroundColor else {
                 return nil
             }
-            return NSColor(CGColor: color)
+            return NSColor(cgColor: color)
         }
         set(color) {
-            layer?.backgroundColor = color?.CGColor
+            layer?.backgroundColor = color?.cgColor
         }
     }
 

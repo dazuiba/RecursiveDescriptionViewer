@@ -20,8 +20,7 @@ import Cocoa
 
 extension Desc {
     var pathComponentCells: [NSPathComponentCell] {
-        return path
-            .componentsSeparatedByString("/")
+        return path.components(separatedBy: "/")
             .filter{ !$0.isEmpty }
             .map { return NSPathComponentCell(textCell: $0) }
     }

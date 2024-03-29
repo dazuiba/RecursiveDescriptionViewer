@@ -23,7 +23,7 @@ final class WindowController: NSWindowController {
         didSet {
             if let document = document as? Document {
                 if let cvc = window?.contentViewController {
-                    cvc.didLoadDocument(document)
+                    cvc.didLoadDocument(document: document)
                 }
             }
         }
@@ -31,7 +31,7 @@ final class WindowController: NSWindowController {
 
     override var window: NSWindow? {
         didSet {
-            window?.titleVisibility = .Hidden
+            window?.titleVisibility = .hidden
         }
     }
 

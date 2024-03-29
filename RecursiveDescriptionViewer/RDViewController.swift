@@ -76,7 +76,7 @@ final class RDViewController: NSViewController, DocumentBased {
             let modelView = RDView(frame: frame, model: m)
             modelView.onMouseDown = { v in
                 if let m = v.model {
-                    self.document?.select(m)
+                    self.document?.select(model: m)
                 }
             }
             view.addSubview(modelView)

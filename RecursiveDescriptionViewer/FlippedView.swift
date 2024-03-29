@@ -19,7 +19,7 @@
 import Cocoa
 
 class FlippedView: LayerBackedView {
-    override var flipped: Bool {
+    override var isFlipped: Bool {
         return true
     }
 }

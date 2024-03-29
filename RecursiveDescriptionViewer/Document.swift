@@ -28,8 +28,8 @@ extension NSViewController {
         if var vc = self as? DocumentBased {
             vc.document = document
         }
-        childViewControllers.forEach { cvc in
-            cvc.didLoadDocument(document)
+        children.forEach { cvc in
+            cvc.didLoadDocument(document: document)
         }
     }
 }
@@ -39,18 +39,17 @@ final class Document: NSDocument {
     private(set) var model: Desc?
     private(set) var selection: Observable<Desc?> = Observable(nil)
 
-    override class func autosavesInPlace() -> Bool {
+    override class var autosavesInPlace : Bool {
         return false
     }
 
     override func makeWindowControllers() {
         let storyboard = NSStoryboard(name: "Main", bundle: nil)
-        let windowController = storyboard.instantiateControllerWithIdentifier(windowID) as! NSWindowController
+        let windowController = storyboard.instantiateController(withIdentifier: windowID) as! NSWindowController
         self.addWindowController(windowController)
     }
-
-    override func readFromData(data: NSData, ofType typeName: String) throws {
-        guard let modelString = String(data: data, encoding: NSUTF8StringEncoding) else {
+    override func read(from data: Data, ofType typeName: String) throws {
+        guard let modelString = String(data: data, encoding: .utf8) else {
             Swift.print("Failed to read file data")
             return
         }
@@ -71,7 +70,7 @@ final class Document: NSDocument {
         guard
             let selectedModel = selection.value,
             let models = selectedModel.superview?.subviews,
-            let selectedIndex = models.indexOf(selectedModel),
+            let selectedIndex = models.index(of:selectedModel),
             let proposedSelection = models[safe: selectedIndex + 1]
             else { return }
 
@@ -82,7 +81,7 @@ final class Document: NSDocument {
         guard
             let selectedModel = selection.value,
             let models = selectedModel.superview?.subviews,
-            let selectedIndex = models.indexOf(selectedModel),
+            let selectedIndex = models.index(of:selectedModel),
             let proposedSelection = models[safe: selectedIndex - 1]
             else { return }
 

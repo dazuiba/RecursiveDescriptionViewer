@@ -20,14 +20,14 @@ import Foundation
 
 let DummyMatch = "<DummyMatch>"
 
-struct IndentGenerator: GeneratorType {
+struct IndentGenerator: IteratorProtocol {
     var tokenizer: ViewHierarchyTokenizer
     var depthStack = Stack<Int>()
     var curDepth = 0
 
     init(tokenizer: ViewHierarchyTokenizer) throws {
         self.tokenizer = tokenizer
-        depthStack.push(0)
+        depthStack.push(item: 0)
     }
 
     mutating func next() -> TokenMatch? {
@@ -46,9 +46,9 @@ struct IndentGenerator: GeneratorType {
             }
         }
         if tokenMatch.token == .DEPTH {
-            curDepth = tokenMatch.match.componentsSeparatedByString("|").count - 1
+            curDepth = tokenMatch.match.components(separatedBy: "|").count - 1
             if curDepth > depthStack.top() {
-                depthStack.push(curDepth)
+                depthStack.push(item: curDepth)
                 return TokenMatch(token: .INDENT, match: tokenMatch.match)
             }
             else {

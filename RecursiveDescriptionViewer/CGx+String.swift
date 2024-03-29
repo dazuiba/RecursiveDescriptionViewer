@@ -20,20 +20,22 @@ import Foundation
 
 extension CGFloat {
     init?(fromString string: String) {
-        guard let n = NSNumberFormatter().numberFromString(string) else {
-            return nil
-        }
-        self.init(n)
+//        guard let n = NumberFormatter().number(from: string) else {
+//            return nil
+//        }
+        self.init(Double(string)!)
     }
 }
 
 extension CGPoint {
     init?(fromString string: String) {
         let components = string
-            .stringByReplacingOccurrencesOfString(",", withString: "")
-            .componentsSeparatedByString(" ")
-        let x = CGFloat(fromString: components[0])!
-        let y = CGFloat(fromString: components[1])!
+            .replacingOccurrences(of: ",", with: "")
+            .components(separatedBy: " ")
+        let x = Double(components[0])!
+        let y = Double(components[1])!
+//        let x = CGFloat(fromString: components[0])!
+//        let y = CGFloat(fromString: components[1])!
         self.init(x: x, y: y)
     }
 }
@@ -41,8 +43,8 @@ extension CGPoint {
 extension CGSize {
     init?(fromString string: String) {
         let components = string
-            .stringByReplacingOccurrencesOfString(",", withString: "")
-            .componentsSeparatedByString(" ")
+            .replacingOccurrences(of: ",", with: "")
+            .components(separatedBy: " ")
         let width = CGFloat(fromString: components[0])!
         let height = CGFloat(fromString: components[1])!
         self.init(width: width, height: height)
@@ -52,8 +54,8 @@ extension CGSize {
 extension CGRect {
     init?(fromString string: String) {
         let components = string
-            .stringByReplacingOccurrencesOfString(";", withString: "")
-            .componentsSeparatedByString(" ")
+            .replacingOccurrences(of: ";", with: "")
+            .components(separatedBy: " ")
         let x = CGFloat(fromString: components[0])!
         let y = CGFloat(fromString: components[1])!
         let width = CGFloat(fromString: components[2])!

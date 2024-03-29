@@ -19,30 +19,30 @@
 import Cocoa
 
 final class RDView: FlippedView {
-    private let normalBorderColor = NSColor.lightGrayColor().CGColor
-    private let normalBackgroundColor = NSColor(red: 1, green: 1, blue: 1, alpha: 0.05).CGColor
-    private let highlightedBorderColor = NSColor.blueColor().CGColor
-    private let highlightedBackgroundColor = NSColor(red: 0, green: 0, blue: 1, alpha: 0.15).CGColor
-
+    private let normalBorderColor = NSColor.lightGray.cgColor
+    private let normalBackgroundColor = NSColor(red: 1, green: 1, blue: 1, alpha: 0.05).cgColor
+    private let highlightedBorderColor = NSColor.blue.cgColor
+    private let highlightedBackgroundColor = NSColor(red: 0, green: 0, blue: 1, alpha: 0.15).cgColor
+    
     var model: Desc?
     var onMouseDown: (RDView) -> () = { _ in }
-
+    
     convenience init(frame: CGRect, model: Desc) {
         self.init(frame: frame)
         self.model = model
         toolTip = "\(model.elem.string)"
     }
-
+    
     required override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
         commonInit()
     }
-
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         commonInit()
     }
-
+    
     private func commonInit() {
         wantsLayer = true
         if let layer = layer {
@@ -52,19 +52,19 @@ final class RDView: FlippedView {
             layer.masksToBounds = false
         }
     }
-
-    override var flipped: Bool {
+    
+    override var isFlipped: Bool {
         return true
     }
-
+    
     override var wantsDefaultClipping: Bool {
         return false
     }
-
+    
     var borderColor: NSColor? {
         get {
             if let color = layer?.borderColor {
-                return NSColor(CGColor: color)
+                return NSColor(cgColor: color)
             }
             else {
                 return nil
@@ -72,11 +72,11 @@ final class RDView: FlippedView {
         }
         set(color) {
             if let color = color {
-                layer?.borderColor = color.CGColor
+                layer?.borderColor = color.cgColor
             }
         }
     }
-
+    
     var highlighted = false {
         didSet {
             if self.highlighted == true {
@@ -89,8 +89,7 @@ final class RDView: FlippedView {
             }
         }
     }
-
-    override func mouseDown(theEvent: NSEvent) {
+    override func mouseDown(with event: NSEvent) {
         onMouseDown(self)
     }
 }

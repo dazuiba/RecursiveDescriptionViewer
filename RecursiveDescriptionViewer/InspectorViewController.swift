@@ -34,8 +34,8 @@ final class InspectorViewController: NSViewController, DocumentBased {
     weak var document: Document? {
         didSet {
             document?.selection.afterChange.add { change in
-                self.populateSubviews()
-                self.updateFields()
+                self.populateSubviews(change.newValue)
+                self.updateFields(change.newValue)
             }
         }
     }
@@ -46,9 +46,9 @@ final class InspectorViewController: NSViewController, DocumentBased {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        stackView?.autoContentSizeOptions = TSAutoContentSize.Height
-        self.populateSubviews()
-        self.updateFields()
+        stackView?.autoContentSizeOptions = TSAutoContentSize.height
+        self.populateSubviews(nil)
+        self.updateFields(nil)
     }
 
     func subviewButtonPressed(button: NSButton?) {
@@ -58,30 +58,30 @@ final class InspectorViewController: NSViewController, DocumentBased {
         guard let proposedSelection = document?.selection.value?.subviews[index] else {
             return
         }
-        document?.select(proposedSelection)
+        document?.select(model: proposedSelection)
     }
 
-    func populateSubviews() {
-        guard let selectedModel = document?.selection.value else {
+    func populateSubviews(_ selectedModel:Desc?) {
+        guard let selectedModel else {
             return
         }
         var views = [NSButton]()
         selectedModel.subviews.forEach { m in
             let button = NSButton(frame: CGRect(x: 0, y: 0, width: 180, height: 17))
             button.title = "\(m.elem.name)"
-            button.setButtonType(.MomentaryPushInButton)
-            button.bezelStyle = .InlineBezelStyle
-            button.lineBreakMode = .ByTruncatingTail
+            button.setButtonType(.momentaryPushIn)
+            button.bezelStyle = .inline
+            button.lineBreakMode = .byTruncatingTail
             button.target = self
             button.action = "subviewButtonPressed:"
-            button.tag = selectedModel.subviews.indexOf(m)!
+            button.tag = selectedModel.subviews.index(of:m)!
             views.append(button)
         }
-        stackView?.setViews(views, inGravity: .Top)
+        stackView?.setViews(views, in: .top)
     }
 
-    func updateFields() {
-        let selected = document?.selection.value
+    func updateFields(_ selected:Desc?) {
+//        let selected = document?.selection.value
         nameField?.stringValue = selected?.elem.name ?? ""
         addressField?.stringValue = selected?.elem.address ?? ""
 
@@ -92,10 +92,10 @@ final class InspectorViewController: NSViewController, DocumentBased {
             frameHeightField?.stringValue = "\(frame.size.height)"
         }
 
-        let sup = document?.selection.value?.superview
+        let sup = selected?.superview
         superviewNameField?.stringValue = sup?.elem.name ?? ""
         superviewAddressField?.stringValue = sup?.elem.address ?? ""
 
-        goToSuperButton?.enabled = sup != nil
+        goToSuperButton?.isEnabled = sup != nil
     }
 }

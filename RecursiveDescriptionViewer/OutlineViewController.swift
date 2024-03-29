@@ -28,13 +28,13 @@ final class OutlineViewController: NSViewController, NSOutlineViewDataSource, Do
         didSet {
             model = document?.model
             outlineView.reloadData()
-            document?.selection.afterChange.add { change in
+            document?.selection.afterChange.add {   change in
                 let indexes = NSMutableIndexSet()
-                let row = self.outlineView.rowForItem(change.newValue)
-                indexes.addIndex(row)
+                let row = self.outlineView.row(forItem: change.newValue)
+                indexes.add(row)
                 assert(row != -1)
                 self.outlineView.selectRowIndexes(
-                    indexes,
+                    indexes as IndexSet,
                     byExtendingSelection: false
                 )
                 self.outlineView.scrollRowToVisible(indexes.firstIndex)
@@ -46,8 +46,7 @@ final class OutlineViewController: NSViewController, NSOutlineViewDataSource, Do
         super.viewDidAppear()
         outlineView.expandItem(nil, expandChildren: true)
     }
-
-    func outlineView(outlineView: NSOutlineView, numberOfChildrenOfItem item: AnyObject?) -> Int {
+    func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
         if let item = item as? Desc {
             return item.subviews.count
         }
@@ -57,7 +56,7 @@ final class OutlineViewController: NSViewController, NSOutlineViewDataSource, Do
         return 0
     }
 
-    func outlineView(outlineView: NSOutlineView, child index: Int, ofItem item: AnyObject?) -> AnyObject {
+    func outlineView(_ outlineView: NSOutlineView, child index: Int, ofItem item: Any?) -> Any {
         if let item = item as? Desc {
             return item.subviews[index]
         }
@@ -66,7 +65,7 @@ final class OutlineViewController: NSViewController, NSOutlineViewDataSource, Do
         }
     }
 
-    func outlineView(outlineView: NSOutlineView, isItemExpandable item: AnyObject) -> Bool {
+    func outlineView(_ outlineView: NSOutlineView, isItemExpandable item: Any) -> Bool {
         if let item = item as? Desc {
             return item.subviews.count > 0
         }
@@ -74,22 +73,22 @@ final class OutlineViewController: NSViewController, NSOutlineViewDataSource, Do
             return false
         }
     }
-
-    func outlineView(outlineView: NSOutlineView, objectValueForTableColumn tableColumn: NSTableColumn?, byItem item: AnyObject?) -> AnyObject? {
+    
+    func outlineView(_ outlineView: NSOutlineView, objectValueFor tableColumn: NSTableColumn?, byItem item: Any?) -> Any? {
         if let item = item as? Desc {
-            return "\(item.elem.name)"
+            return "\(item.elem.name)" as AnyObject
         }
         else {
             return nil
         }
     }
-
-    func outlineView(outlineView: NSOutlineView, selectionIndexesForProposedSelection proposedSelectionIndexes: NSIndexSet) -> NSIndexSet {
+    func outlineView(_ outlineView: NSOutlineView, selectionIndexesForProposedSelection proposedSelectionIndexes: IndexSet) -> IndexSet{
+//    func outlineView(_ outlineView: NSOutlineView, selectionIndexesForProposedSelection proposedSelectionIndexes: IndexSet) -> IndexSet {
         assert(proposedSelectionIndexes.count <= 1)
-        let index = proposedSelectionIndexes.firstIndex
-        let item = outlineView.itemAtRow(index)
+        let index = proposedSelectionIndexes.first!
+        let item = outlineView.item(atRow: index)
         if let item = item as? Desc {
-            self.document?.select(item)
+            self.document?.select(model: item)
         }
         return proposedSelectionIndexes
     }

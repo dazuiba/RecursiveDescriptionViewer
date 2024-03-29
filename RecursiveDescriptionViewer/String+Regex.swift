@@ -20,7 +20,7 @@ import Foundation
 
 extension String {
     public func regex() throws -> NSRegularExpression {
-        let regexOpts = NSRegularExpressionOptions.CaseInsensitive
+        let regexOpts = NSRegularExpression.Options.caseInsensitive
         return try NSRegularExpression(pattern: self, options: regexOpts)
     }
 }

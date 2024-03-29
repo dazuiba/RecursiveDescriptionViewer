@@ -35,21 +35,21 @@ struct TokenMatch {
     let match: String
 }
 
-struct ViewHierarchyTokenizer: GeneratorType {
-    let scanner: NSScanner
+struct ViewHierarchyTokenizer: IteratorProtocol {
+    let scanner: Scanner
     let depthPattern: NSRegularExpression
 
     init(string: String) throws {
         depthPattern = try "[ |]+".regex()
-        scanner = NSScanner(string: string)
-        scanner.charactersToBeSkipped = .whitespaceCharacterSet()
+        scanner = Scanner(string: string)
+        scanner.charactersToBeSkipped = CharacterSet.whitespaces
     }
 
     mutating func next() -> TokenMatch? {
-        if scanner.atEnd {
+        if scanner.isAtEnd {
             return nil
         }
-        if let depthStr = scanner.scanRegex(depthPattern) {
+        if let depthStr = scanner.scanRegex(regex: depthPattern) {
             return TokenMatch(token: .DEPTH, match: depthStr)
         }
         if let desc = scanner.scanUpToString("\n") {

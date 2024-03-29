@@ -19,7 +19,7 @@
 import Foundation
 
 protocol GraphTraversable {
-    typealias GraphType : Hashable
+    associatedtype GraphType : Hashable
     var nodes: [GraphType] { get }
 }
 
@@ -29,7 +29,7 @@ enum Status {
 }
 
 extension GraphTraversable where GraphType == Self {
-    func dfs(callback: GraphType -> Status) {
+    func dfs(callback: (GraphType) -> Status) {
         var stack = [GraphType]()
         stack.append(self)
         var visited = Set<GraphType>()

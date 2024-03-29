@@ -52,15 +52,15 @@ extension ListViewController: NSBrowserDelegate {
 
     func browser(browser: NSBrowser, objectValueForItem item: AnyObject?) -> AnyObject? {
         let item = item as! Desc
-        return "\(item.elem.name): \(item.elem.address)"
+        return "\(item.elem.name): \(item.elem.address)" as AnyObject
     }
 
     func browser(browser: NSBrowser, selectionIndexesForProposedSelection proposedSelectionIndexes: NSIndexSet, inColumn column: Int) -> NSIndexSet {
 
         let index = proposedSelectionIndexes.firstIndex
-        let item = browser.itemAtRow(index, inColumn: column)
+        let item = browser.item(atRow: index, inColumn: column)
         if let item = item as? Desc {
-            document?.select(item)
+            document?.select(model: item)
         }
         return proposedSelectionIndexes
     }

@@ -19,7 +19,7 @@
 import Foundation
 
 struct Parser {
-    enum Error: ErrorType {
+    enum Error: Swift.Error {
         case UnexpectedToken(TokenMatch)
     }
 
@@ -65,7 +65,7 @@ struct Parser {
     }
 
     mutating func accept(tok: Token) -> Bool {
-        if let next = peek() where tok == next.token {
+        if let next = peek(), tok == next.token {
             consume()
             return true
         }
@@ -73,7 +73,7 @@ struct Parser {
     }
 
     mutating func expect(tok: Token) throws -> Bool {
-        if accept(tok) {
+        if accept(tok: tok) {
             return true
         }
         throw Error.UnexpectedToken(peek()!)
@@ -85,12 +85,12 @@ struct Parser {
     mutating func parseDesc() throws -> Desc {
         let elem = try parseElem()
         var subviews = [Desc]()
-        if accept(.INDENT) {
+        if accept(tok: .INDENT) {
             while peek()?.token == .ELEM {
                 let subview = try parseDesc()
                 subviews.append(subview)
             }
-            try expect(.DEDENT)
+            try expect(tok: .DEDENT)
         }
         return Desc(elem: elem, subviews:subviews)
     }
@@ -98,14 +98,14 @@ struct Parser {
 
 
     mutating func parseElem() throws -> Elem {
-        try expect(.ELEM)
+        try expect(tok: .ELEM)
         guard let c = curMatch else {
             throw Error.UnexpectedToken(peek()!)
         }
         let string = c.match
         guard
-            let name = namePattern.match(string),
-            let address = addressPattern.match(string) else {
+            let name = namePattern.match(string: string),
+            let address = addressPattern.match(string: string) else {
                 throw Error.UnexpectedToken(peek()!)
         }
         let props = try parseElemProps()
@@ -119,19 +119,19 @@ struct Parser {
         }
         let string = c.match
         var props = [Prop]()
-        if let frameStr = framePattern.match(string) {
+        if let frameStr = framePattern.match(string: string) {
             if let frame = CGRect(fromString: frameStr) {
                 let prop = Prop.Frame(frame)
                 props.append(prop)
             }
         }
-        if let contentSizeStr = contentSizePattern.match(string) {
+        if let contentSizeStr = contentSizePattern.match(string: string) {
             if let size = CGSize(fromString: contentSizeStr) {
                 let prop = Prop.ContentSize(size)
                 props.append(prop)
             }
         }
-        if let contentSizeStr = contentOffsetPattern.match(string) {
+        if let contentSizeStr = contentOffsetPattern.match(string: string) {
             if let offset = CGPoint(fromString: contentSizeStr) {
                 let prop = Prop.ContentOffset(offset)
                 props.append(prop)

@@ -21,9 +21,9 @@ import Foundation
 extension NSRegularExpression {
     func match(string: String) -> String? {
         let nsString = (string as NSString)
-        let opts = NSMatchingOptions.WithTransparentBounds
+        let opts = NSRegularExpression.MatchingOptions.withTransparentBounds
         let range = NSMakeRange(0, nsString.length)
-        guard let match = self.firstMatchInString(string, options: opts, range: range) else {
+        guard let match = self.firstMatch(in: string, options: opts, range: range) else {
             return nil
         }
         guard match.numberOfRanges <= 2 else {
@@ -31,8 +31,8 @@ extension NSRegularExpression {
             return nil
         }
         let matchIndex = match.numberOfRanges - 1
-        let resultRange = match.rangeAtIndex(matchIndex)
-        let result = nsString.substringWithRange(resultRange)
+        let resultRange = match.range(at: matchIndex)
+        let result = nsString.substring(with: resultRange)
         return result
     }
 }

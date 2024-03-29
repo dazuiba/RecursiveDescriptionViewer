@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2299DD972BB6BC2100014B74 /* Observable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2299DD8F2BB6B46C00014B74 /* Observable.framework */; };
+		2299DD982BB6BC2100014B74 /* Observable.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2299DD8F2BB6B46C00014B74 /* Observable.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B2162A891BBFBF8E00A00EAE /* OutlineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2162A881BBFBF8E00A00EAE /* OutlineViewController.swift */; };
 		B231616B1BBEEF590013CE89 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B231616A1BBEEF590013CE89 /* WindowController.swift */; };
 		B282F3A61BC5B94C00449528 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B282F3A51BC5B94C00449528 /* ListViewController.swift */; };
@@ -25,8 +27,6 @@
 		B28F08901BBD149100E360CA /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F088F1BBD149100E360CA /* Parser.swift */; };
 		B28F08A41BBDCDE200E360CA /* NSRegularExpression+Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F08A31BBDCDE200E360CA /* NSRegularExpression+Swift.swift */; };
 		B28F08A61BBDD91000E360CA /* RDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28F08A51BBDD91000E360CA /* RDView.swift */; };
-		B2D455681BFD713900F49518 /* Observable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2D455601BFD711400F49518 /* Observable.framework */; };
-		B2D455691BFD713900F49518 /* Observable.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B2D455601BFD711400F49518 /* Observable.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B2D4FC491BC63DE9003B0E7E /* InspectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D4FC481BC63DE9003B0E7E /* InspectorViewController.swift */; };
 		B2D4FC4F1BC63E4E003B0E7E /* TSClipView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D4FC4C1BC63E4E003B0E7E /* TSClipView.m */; };
 		B2D4FC501BC63E4E003B0E7E /* TSStackView.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D4FC4E1BC63E4E003B0E7E /* TSStackView.m */; };
@@ -41,40 +41,33 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		B2D4555F1BFD711400F49518 /* PBXContainerItemProxy */ = {
+		2299DD8E2BB6B46C00014B74 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = B2D455581BFD711400F49518 /* Observable-Swift.xcodeproj */;
+			containerPortal = 2299DD872BB6B46C00014B74 /* Observable-Swift.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 65263A9D1954BC5000B39269;
 			remoteInfo = Observable;
 		};
-		B2D455611BFD711400F49518 /* PBXContainerItemProxy */ = {
+		2299DD902BB6B46C00014B74 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = B2D455581BFD711400F49518 /* Observable-Swift.xcodeproj */;
+			containerPortal = 2299DD872BB6B46C00014B74 /* Observable-Swift.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 65263AA81954BC5000B39269;
 			remoteInfo = "Observable Tests";
 		};
-		B2D455631BFD711400F49518 /* PBXContainerItemProxy */ = {
+		2299DD922BB6B46C00014B74 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = B2D455581BFD711400F49518 /* Observable-Swift.xcodeproj */;
+			containerPortal = 2299DD872BB6B46C00014B74 /* Observable-Swift.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 6592C2FC1957532100BA8CB7;
 			remoteInfo = "Observable-iOS";
 		};
-		B2D455651BFD711400F49518 /* PBXContainerItemProxy */ = {
+		2299DD942BB6B46C00014B74 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = B2D455581BFD711400F49518 /* Observable-Swift.xcodeproj */;
+			containerPortal = 2299DD872BB6B46C00014B74 /* Observable-Swift.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 6592C3061957532100BA8CB7;
 			remoteInfo = "Observable-iOS Tests";
-		};
-		B2D4556A1BFD713900F49518 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B2D455581BFD711400F49518 /* Observable-Swift.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 65263A9C1954BC5000B39269;
-			remoteInfo = Observable;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -85,7 +78,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				B2D455691BFD713900F49518 /* Observable.framework in Embed Frameworks */,
+				2299DD982BB6BC2100014B74 /* Observable.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -93,6 +86,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2299DD872BB6B46C00014B74 /* Observable-Swift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "Observable-Swift.xcodeproj"; path = "../Observable-Swift-master/Observable-Swift.xcodeproj"; sourceTree = "<group>"; };
 		B2162A881BBFBF8E00A00EAE /* OutlineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutlineViewController.swift; sourceTree = "<group>"; };
 		B231616A1BBEEF590013CE89 /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		B282F3A51BC5B94C00449528 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
@@ -113,7 +107,6 @@
 		B28F088F1BBD149100E360CA /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		B28F08A31BBDCDE200E360CA /* NSRegularExpression+Swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSRegularExpression+Swift.swift"; sourceTree = "<group>"; };
 		B28F08A51BBDD91000E360CA /* RDView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RDView.swift; sourceTree = "<group>"; };
-		B2D455581BFD711400F49518 /* Observable-Swift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "Observable-Swift.xcodeproj"; path = "Carthage/Checkouts/Observable-Swift/Observable-Swift.xcodeproj"; sourceTree = "<group>"; };
 		B2D4FC481BC63DE9003B0E7E /* InspectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InspectorViewController.swift; sourceTree = "<group>"; };
 		B2D4FC4B1BC63E4E003B0E7E /* TSClipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSClipView.h; sourceTree = "<group>"; };
 		B2D4FC4C1BC63E4E003B0E7E /* TSClipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSClipView.m; sourceTree = "<group>"; };
@@ -135,17 +128,35 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2D455681BFD713900F49518 /* Observable.framework in Frameworks */,
+				2299DD972BB6BC2100014B74 /* Observable.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2299DD882BB6B46C00014B74 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2299DD8F2BB6B46C00014B74 /* Observable.framework */,
+				2299DD912BB6B46C00014B74 /* Observable Tests.xctest */,
+				2299DD932BB6B46C00014B74 /* Observable.framework */,
+				2299DD952BB6B46C00014B74 /* Observable-iOS Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2299DD962BB6BC2100014B74 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B2162A901BC58B9400A00EAE /* Lib */ = {
 			isa = PBXGroup;
 			children = (
-				B2D455581BFD711400F49518 /* Observable-Swift.xcodeproj */,
+				2299DD872BB6B46C00014B74 /* Observable-Swift.xcodeproj */,
 				B28F08811BBCF7DF00E360CA /* NSScanner+Swift.swift */,
 				B2D4FC4A1BC63E4E003B0E7E /* TSStackView */,
 				B2D4FC651BC781CB003B0E7E /* Array+SafeSubscripting.swift */,
@@ -192,6 +203,7 @@
 				B2162A901BC58B9400A00EAE /* Lib */,
 				B28F086C1BBCF64500E360CA /* Products */,
 				B28F086D1BBCF64500E360CA /* RecursiveDescriptionViewer */,
+				2299DD962BB6BC2100014B74 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -228,17 +240,6 @@
 			path = RecursiveDescriptionViewer;
 			sourceTree = "<group>";
 		};
-		B2D455591BFD711400F49518 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				B2D455601BFD711400F49518 /* Observable.framework */,
-				B2D455621BFD711400F49518 /* Observable Tests.xctest */,
-				B2D455641BFD711400F49518 /* Observable.framework */,
-				B2D455661BFD711400F49518 /* Observable-iOS Tests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		B2D4FC4A1BC63E4E003B0E7E /* TSStackView */ = {
 			isa = PBXGroup;
 			children = (
@@ -266,7 +267,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				B2D4556B1BFD713900F49518 /* PBXTargetDependency */,
 			);
 			name = RecursiveDescriptionViewer;
 			productName = RecursiveDescriptionViewer;
@@ -292,6 +292,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -300,8 +301,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = B2D455591BFD711400F49518 /* Products */;
-					ProjectRef = B2D455581BFD711400F49518 /* Observable-Swift.xcodeproj */;
+					ProductGroup = 2299DD882BB6B46C00014B74 /* Products */;
+					ProjectRef = 2299DD872BB6B46C00014B74 /* Observable-Swift.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -312,32 +313,32 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		B2D455601BFD711400F49518 /* Observable.framework */ = {
+		2299DD8F2BB6B46C00014B74 /* Observable.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = Observable.framework;
-			remoteRef = B2D4555F1BFD711400F49518 /* PBXContainerItemProxy */;
+			remoteRef = 2299DD8E2BB6B46C00014B74 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		B2D455621BFD711400F49518 /* Observable Tests.xctest */ = {
+		2299DD912BB6B46C00014B74 /* Observable Tests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = "Observable Tests.xctest";
-			remoteRef = B2D455611BFD711400F49518 /* PBXContainerItemProxy */;
+			remoteRef = 2299DD902BB6B46C00014B74 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		B2D455641BFD711400F49518 /* Observable.framework */ = {
+		2299DD932BB6B46C00014B74 /* Observable.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = Observable.framework;
-			remoteRef = B2D455631BFD711400F49518 /* PBXContainerItemProxy */;
+			remoteRef = 2299DD922BB6B46C00014B74 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		B2D455661BFD711400F49518 /* Observable-iOS Tests.xctest */ = {
+		2299DD952BB6B46C00014B74 /* Observable-iOS Tests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = "Observable-iOS Tests.xctest";
-			remoteRef = B2D455651BFD711400F49518 /* PBXContainerItemProxy */;
+			remoteRef = 2299DD942BB6B46C00014B74 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -390,14 +391,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		B2D4556B1BFD713900F49518 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Observable;
-			targetProxy = B2D4556A1BFD713900F49518 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		B28F08761BBCF64500E360CA /* Main.storyboard */ = {
@@ -504,9 +497,11 @@
 				);
 				INFOPLIST_FILE = RecursiveDescriptionViewer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = com.twitter.RecursiveDescriptionViewer;
 				PRODUCT_NAME = RecursiveDescriptionViewer;
 				SWIFT_OBJC_BRIDGING_HEADER = "RecursiveDescriptionViewer/RecursiveDescriptionViewer-Bridging-Header.h";
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -523,9 +518,11 @@
 				);
 				INFOPLIST_FILE = RecursiveDescriptionViewer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = com.twitter.RecursiveDescriptionViewer;
 				PRODUCT_NAME = RecursiveDescriptionViewer;
 				SWIFT_OBJC_BRIDGING_HEADER = "RecursiveDescriptionViewer/RecursiveDescriptionViewer-Bridging-Header.h";
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
