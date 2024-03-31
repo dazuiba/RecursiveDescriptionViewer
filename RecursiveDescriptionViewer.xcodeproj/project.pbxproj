@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2299DD972BB6BC2100014B74 /* Observable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2299DD8F2BB6B46C00014B74 /* Observable.framework */; };
-		2299DD982BB6BC2100014B74 /* Observable.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2299DD8F2BB6B46C00014B74 /* Observable.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2233A7042BB8EB8700D32260 /* Observable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2233A7022BB8EB7100D32260 /* Observable.framework */; };
+		2233A7052BB8EB8700D32260 /* Observable.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2233A7022BB8EB7100D32260 /* Observable.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B2162A891BBFBF8E00A00EAE /* OutlineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2162A881BBFBF8E00A00EAE /* OutlineViewController.swift */; };
 		B231616B1BBEEF590013CE89 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B231616A1BBEEF590013CE89 /* WindowController.swift */; };
 		B282F3A61BC5B94C00449528 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B282F3A51BC5B94C00449528 /* ListViewController.swift */; };
@@ -72,13 +72,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		B282F3A41BC58FE900449528 /* Embed Frameworks */ = {
+		2233A7062BB8EB8700D32260 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				2299DD982BB6BC2100014B74 /* Observable.framework in Embed Frameworks */,
+				2233A7052BB8EB8700D32260 /* Observable.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -88,6 +88,7 @@
 /* Begin PBXFileReference section */
 		2233A6FB2BB8E9AE00D32260 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		2233A7012BB8E9E900D32260 /* Demo */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Demo; sourceTree = "<group>"; };
+		2233A7022BB8EB7100D32260 /* Observable.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Observable.framework; sourceTree = "<group>"; };
 		2299DD872BB6B46C00014B74 /* Observable-Swift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "Observable-Swift.xcodeproj"; path = "../Observable-Swift-master/Observable-Swift.xcodeproj"; sourceTree = "<group>"; };
 		B2162A881BBFBF8E00A00EAE /* OutlineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutlineViewController.swift; sourceTree = "<group>"; };
 		B231616A1BBEEF590013CE89 /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
@@ -130,7 +131,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2299DD972BB6BC2100014B74 /* Observable.framework in Frameworks */,
+				2233A7042BB8EB8700D32260 /* Observable.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +203,7 @@
 		B28F08621BBCF64500E360CA = {
 			isa = PBXGroup;
 			children = (
+				2233A7022BB8EB7100D32260 /* Observable.framework */,
 				2233A6FB2BB8E9AE00D32260 /* README.md */,
 				2233A7012BB8E9E900D32260 /* Demo */,
 				B2162A901BC58B9400A00EAE /* Lib */,
@@ -266,7 +268,7 @@
 				B28F08671BBCF64500E360CA /* Sources */,
 				B28F08681BBCF64500E360CA /* Frameworks */,
 				B28F08691BBCF64500E360CA /* Resources */,
-				B282F3A41BC58FE900449528 /* Embed Frameworks */,
+				2233A7062BB8EB8700D32260 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
