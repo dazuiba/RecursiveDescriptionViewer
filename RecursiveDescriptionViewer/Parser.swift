@@ -34,8 +34,8 @@ struct Parser {
     let contentOffsetPattern: NSRegularExpression
 
     init(string: String) throws {
-        namePattern = try "<([a-z0-9_]*): 0x[a-f0-9]*".regex()
-        addressPattern = try "<[a-z0-9_]*: (0x[a-f0-9]*)".regex()
+           namePattern = try "<(.*): 0x[a-f0-9]*".regex()
+        addressPattern = try "<.*: (0x[a-f0-9]*)".regex()
         framePattern = try "frame = \\(([^\\)]*)\\)".regex()
         contentSizePattern = try "contentSize: \\{([^\\}]*)\\}".regex()
         contentOffsetPattern = try "contentOffset: \\{([^\\}]*)\\}".regex()
