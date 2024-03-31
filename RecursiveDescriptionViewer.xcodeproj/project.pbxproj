@@ -86,6 +86,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2233A6FB2BB8E9AE00D32260 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		2233A7012BB8E9E900D32260 /* Demo */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Demo; sourceTree = "<group>"; };
 		2299DD872BB6B46C00014B74 /* Observable-Swift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "Observable-Swift.xcodeproj"; path = "../Observable-Swift-master/Observable-Swift.xcodeproj"; sourceTree = "<group>"; };
 		B2162A881BBFBF8E00A00EAE /* OutlineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutlineViewController.swift; sourceTree = "<group>"; };
 		B231616A1BBEEF590013CE89 /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
@@ -200,6 +202,8 @@
 		B28F08621BBCF64500E360CA = {
 			isa = PBXGroup;
 			children = (
+				2233A6FB2BB8E9AE00D32260 /* README.md */,
+				2233A7012BB8E9E900D32260 /* Demo */,
 				B2162A901BC58B9400A00EAE /* Lib */,
 				B28F086C1BBCF64500E360CA /* Products */,
 				B28F086D1BBCF64500E360CA /* RecursiveDescriptionViewer */,

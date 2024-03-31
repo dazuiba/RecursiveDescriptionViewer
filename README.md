@@ -2,6 +2,18 @@
 
 Takes the output from `[view recursiveDescription]` and rebuilds a view hierarchy which can be navigated.
 
+## usage
+
+on macos, with frida
+```
+frida -n "XXXX" -l hack.js
+var a=ObjC.classes.NSApplication.sharedApplication().windows().objectAtIndex_(1)
+pwindow(a)
+```
+## screenshot
+
+![screenshot](Demo/CodeEdit.png)
+
 ## License
 
 This program is free software: you can redistribute it and/or modify
